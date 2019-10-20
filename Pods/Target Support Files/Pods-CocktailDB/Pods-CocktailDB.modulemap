@@ -1,0 +1,6 @@
+framework module Pods_CocktailDB {
+  umbrella header "Pods-CocktailDB-umbrella.h"
+
+  export *
+  module * { export * }
+}

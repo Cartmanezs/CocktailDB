@@ -41,21 +41,21 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="6ow-FY-xPB" customClass="CustomTableViewCell" customModule="CocktailDB" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="59"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="59.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6ow-FY-xPB" id="TQ6-Oa-tKt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="npW-vf-q3N">
-                                                    <rect key="frame" x="15" y="2" width="55" height="55"/>
+                                                    <rect key="frame" x="15" y="2.5" width="55" height="55"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="55" id="0MT-Xe-Rth"/>
                                                         <constraint firstAttribute="height" constant="55" id="7SX-G1-vmY"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Qp-8C-3C4">
-                                                    <rect key="frame" x="85" y="19" width="267" height="21"/>
+                                                    <rect key="frame" x="85" y="19" width="267" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -97,14 +97,14 @@
                     <navigationItem key="navigationItem" title="Cocktails" id="tfL-O9-0F2">
                         <barButtonItem key="rightBarButtonItem" title="Filter" id="nug-vx-4SF">
                             <connections>
-                                <segue destination="Ddp-uX-uxK" kind="show" id="yBf-SJ-WfI"/>
+                                <segue destination="fFx-hY-rnb" kind="show" id="mjC-nM-sJJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityView" destination="TDC-ko-3Lt" id="pm3-wY-rzz"/>
                         <outlet property="tableView" destination="OZz-ac-3Hi" id="xhE-Mu-sJU"/>
-                        <segue destination="fFx-hY-rnb" kind="show" id="9ED-q2-oEU"/>
+                        <segue destination="fFx-hY-rnb" kind="show" id="MlI-Y4-p4Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -114,42 +114,57 @@
         <!--Filter-->
         <scene sceneID="Kgr-rY-V3I">
             <objects>
-                <viewController id="fFx-hY-rnb" sceneMemberID="viewController">
+                <viewController id="fFx-hY-rnb" customClass="FilterViewController" customModule="CocktailDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4OD-PW-5Au">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ahT-XU-55n">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" id="9wH-IT-eTJ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9wH-IT-eTJ" id="7Kt-qn-FVM">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fFx-hY-rnb" id="HwC-Ie-S0f"/>
+                                    <outlet property="delegate" destination="fFx-hY-rnb" id="8k7-FG-nbJ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ahT-XU-55n" firstAttribute="bottom" secondItem="2r1-OC-w3G" secondAttribute="bottom" id="FUh-Lp-Ygf"/>
+                            <constraint firstItem="ahT-XU-55n" firstAttribute="trailing" secondItem="2r1-OC-w3G" secondAttribute="trailing" id="GLB-uB-yxo"/>
+                            <constraint firstItem="ahT-XU-55n" firstAttribute="top" secondItem="2r1-OC-w3G" secondAttribute="top" id="H8R-l7-3vh"/>
+                            <constraint firstItem="ahT-XU-55n" firstAttribute="leading" secondItem="2r1-OC-w3G" secondAttribute="leading" id="pgH-wI-Ccb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2r1-OC-w3G"/>
                     </view>
                     <navigationItem key="navigationItem" title="Filter" id="pg7-oe-J4T">
-                        <barButtonItem key="rightBarButtonItem" title="Apply Filter" id="MSh-ci-sSd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Apply Filter" id="MSh-ci-sSd">
+                            <connections>
+                                <action selector="applyFilterButtonTapped:" destination="fFx-hY-rnb" id="5BX-wo-BhL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="applyFilterButton" destination="MSh-ci-sSd" id="MS6-Y7-vNb"/>
+                        <outlet property="filterTableView" destination="ahT-XU-55n" id="gwA-EP-Q5g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROv-Bt-GES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="97"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3zI-Hy-BPo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ddp-uX-uxK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="1BN-Wy-Ogo"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jn5-hU-QKI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fFx-hY-rnb" kind="relationship" relationship="rootViewController" id="R0Z-3t-jPM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VsP-Bx-Ala" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="966" y="-650"/>
+            <point key="canvasLocation" x="1112.8" y="96.7016491754123"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9ED-q2-oEU"/>
+        <segue reference="MlI-Y4-p4Q"/>
     </inferredMetricsTieBreakers>
 </document>
